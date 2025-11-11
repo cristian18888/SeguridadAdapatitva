@@ -630,3 +630,33 @@ nav a {
     width: 100%;
     text-align: center;
   }
+
+/* --- FIX: Mantener menú en una sola línea --- */
+nav {
+  display: flex;
+  justify-content: center; /* o space-around si prefieres separación */
+  align-items: center;
+  flex-wrap: nowrap; /* evita que salte de línea */
+  white-space: nowrap; /* evita que el texto se parta */
+  overflow-x: auto; /* si no cabe, permite scroll horizontal suave */
+  scrollbar-width: none; /* oculta scrollbar en Firefox */
+}
+
+nav::-webkit-scrollbar {
+  display: none; /* oculta scrollbar en Chrome/Safari */
+}
+
+nav a {
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #dbe0e5;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  nav {
+    justify-content: flex-start;
+    overflow-x: scroll;
+    padding-bottom: 5px;
+  }
+}
