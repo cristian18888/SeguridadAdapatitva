@@ -575,3 +575,26 @@ body{
 #transformaciones .carousel-dots {
   display: none !important;
 }
+
+/* =========================================================
+   📱 RESPONSIVE FIX — Mockups en “Transformaciones del proyecto”
+   ========================================================= */
+#transformaciones .carousel-track {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;           /* ✅ Permite que las tarjetas bajen en móviles */
+  gap: 24px;
+  transition: none;
+}
+
+#transformaciones .carousel-item {
+  flex: 1 1 280px;           /* ✅ Cada tarjeta se adapta proporcionalmente */
+  max-width: 320px;
+  min-width: 240px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  padding: 16px;
+}
