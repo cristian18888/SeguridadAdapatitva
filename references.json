@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ref1",
+    "author": "NIST",
+    "year": 2023,
+    "title": "NIST Guide to Cybersecurity",
+    "link": "https://www.nist.gov/",
+    "summary": "Guía de buenas prácticas y estándares en ciberseguridad."
+  },
+  {
+    "id": "ref2",
+    "author": "OWASP",
+    "year": 2024,
+    "title": "OWASP Top 10",
+    "link": "https://owasp.org/",
+    "summary": "Principales riesgos para aplicaciones web."
+  },
+  {
+    "id": "ref3",
+    "author": "GrapheneOS",
+    "year": 2022,
+    "title": "GrapheneOS Project",
+    "link": "https://grapheneos.org/",
+    "summary": "Sistema operativo con enfoque en privacidad y seguridad."
+  }
+]

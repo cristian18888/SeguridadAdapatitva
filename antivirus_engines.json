@@ -1,0 +1,22 @@
+[
+  {
+    "name": "EngineA",
+    "baseDetectionProbability": 0.2
+  },
+  {
+    "name": "EngineB",
+    "baseDetectionProbability": 0.35
+  },
+  {
+    "name": "EngineC",
+    "baseDetectionProbability": 0.5
+  },
+  {
+    "name": "EngineD",
+    "baseDetectionProbability": 0.15
+  },
+  {
+    "name": "EngineE",
+    "baseDetectionProbability": 0.05
+  }
+]

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulador Docker + IA — Seguridad Adaptativa</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>Simulador <span class="highlight">Docker + IA</span></h1>
+    <p class="intro">Demostración visual del flujo de análisis: un archivo es evaluado por IA y, si se detecta riesgo, se envía a un contenedor Docker para ejecución segura y análisis tipo sandboxing.</p>
+
+    <div class="grid">
+      <!-- LEFT: flujo y consola -->
+      <div class="card">
+        <h2>Flujo de análisis</h2>
+        <p class="sub">Selecciona un archivo para iniciar el proceso de detección con IA y simulación Docker.</p>
+
+        <div id="stages" class="flow-stage-group">
+          <div class="flow-stage">
+            <div id="s-upload" class="stage-bubble active">1. Upload</div>
+            <div id="s-ia" class="stage-bubble">2. IA</div>
+            <div id="s-docker" class="stage-bubble">3. Docker</div>
+            <div id="s-sandbox" class="stage-bubble">4. Sandboxing</div>
+            <div id="s-report" class="stage-bubble">5. Informe</div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <label class="btn ghost" id="selectFileBtn">
+            📁 Seleccionar archivo
+            <input id="fileInput" type="file" aria-label="Seleccionar archivo" />
+          </label>
+
+          <button id="runIaBtn" class="btn" disabled>Ejecutar IA</button>
+          <button id="sendToDockerBtn" class="btn" disabled>Enviar a Docker</button>
+          <button id="runSandboxBtn" class="btn" disabled>Ejecutar Sandboxing</button>
+          <button id="downloadReportBtn" class="btn" disabled>Descargar Informe</button>
+          <button id="resetBtn" class="btn ghost">Reiniciar</button>
+        </div>
+
+        <div class="console" id="consoleLog" role="log" aria-live="polite"></div>
+      </div>
+
+      <!-- RIGHT: contenedor y reporte -->
+      <aside>
+        <div class="card container-card">
+          <h2>Contenedor Docker (laboratorio)</h2>
+          <div class="container-info">
+            <div>
+              <div id="containerName" class="muted">Nombre: —</div>
+              <div id="containerStatus" class="status"><span class="status-pill status-stopped">Detenido</span></div>
+            </div>
+            <div class="container-actions">
+              <div class="muted">Acciones</div>
+              <button id="startContainerBtn" class="btn ghost" disabled>Iniciar</button>
+              <button id="stopContainerBtn" class="btn ghost" disabled>Parar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card container-card">
+          <h3 class="muted">Vista en tiempo real</h3>
+          <div id="liveView" class="live-view">Sin actividad.</div>
+        </div>
+
+        <div class="card report" id="reportCard">
+          <h3 class="muted">Informe generado</h3>
+          <div id="reportContent">No hay informe.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="Index.js"></script>
+</body>
+</html>

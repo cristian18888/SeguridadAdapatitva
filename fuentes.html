@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fuentes de Información — Seguridad Adaptativa</title>
+
+  <!-- 1) Variables y base del sitio -->
+  <link rel="stylesheet" href="style.css">
+  <!-- 2) Estilos específicos de este apartado -->
+  <link rel="stylesheet" href="fuentes.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="sources">
+  <!-- =========================================================
+       HEADER (coherente con index)
+       ========================================================= -->
+  <header class="site-header site-header--inner">
+    <div class="wrap">
+      <a class="brand" href="index.html">← Volver</a>
+      <nav class="main-nav" aria-label="Secundario">
+        <a class="active" href="#top">Fuentes</a>
+      </nav>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       HERO / ENCABEZADO DE SECCIÓN
+       ========================================================= -->
+  <section id="top" class="section hero-slim">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <h1>Fuentes de Información</h1>
+      <p class="subtle">
+        Repositorio de referencias académicas, técnicas y documentales utilizadas en el proyecto.
+      </p>
+
+      <!-- Barra de filtros (solo UI) -->
+      <div class="filterbar" role="toolbar" aria-label="Filtros de referencias">
+        <div class="chips">
+          <button class="chip active"><i class="fa-solid fa-layer-group"></i> Todas</button>
+          <button class="chip"><i class="fa-solid fa-shield-halved"></i> NIST</button>
+          <button class="chip"><i class="fa-brands fa-docker"></i> Docker</button>
+          <button class="chip"><i class="fa-brands fa-osi"></i> OWASP</button>
+          <button class="chip"><i class="fa-solid fa-file-lines"></i> Papers</button>
+          <button class="chip"><i class="fa-solid fa-chart-line"></i> Reportes</button>
+        </div>
+
+        <div class="filters-right">
+          <div class="searchbox">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Buscar por título, autor, año…" aria-label="Buscar referencias">
+          </div>
+
+          <div class="select">
+            <i class="fa-solid fa-arrow-up-short-wide"></i>
+            <span>Ordenar por</span>
+            <strong>Año</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       GRID DE TARJETAS
+       ========================================================= -->
+  <main class="section">
+    <div class="wrap">
+      <!-- Nota: aquí iría el render dinámico si decides conectar a JSON.
+           Por ahora dejamos tarjetas de ejemplo / estructura final. -->
+
+      <div class="ref-grid" id="ref-container">
+        <!-- Tarjeta 1 -->
+        <article class="ref-card">
+          <header class="ref-head">
+            <span class="badge sky">NIST</span>
+            <time class="year">2024</time>
+          </header>
+          <h3 class="ref-title">
+            <a href="https://www.nist.gov/cyberframework" aria-label="NIST CSF 2.0">NIST Cybersecurity Framework 2.0</a>
+          </h3>
+          <p class="ref-meta">National Institute of Standards and Technology — 2024</p>
+          <p class="ref-summary">
+            Marco con funciones <em>Identify, Protect, Detect, Respond, Recover</em> actualizado a 2.0, guía estratégica de ciberseguridad.
+          </p>
+          <footer class="ref-foot">
+            <span class="tag">Framework</span><span class="tag">Buenas prácticas</span>
+            <a class="ghost-link" href="https://www.nist.gov/cyberframework"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver fuente</a>
+          </footer>
+        </article>
+
+        <!-- Tarjeta 2 -->
+        <article class="ref-card">
+          <header class="ref-head">
+            <span class="badge mint">OWASP</span>
+            <time class="year">2023</time>
+          </header>
+          <h3 class="ref-title">
+            <a href="https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html">OWASP ASVS + Docker Security Cheat Sheet</a>
+          </h3>
+          <p class="ref-meta">OWASP Foundation — 2023 (act.)</p>
+          <p class="ref-summary">
+            Estándares de verificación de seguridad y hoja de referencia para hardening: namespaces, capabilities, no-new-privileges y supply chain.
+          </p>
+          <footer class="ref-foot">
+            <span class="tag">Guía</span><span class="tag">Contenedores</span>
+            <a class="ghost-link" href="https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver fuente</a>
+          </footer>
+        </article>
+
+        <!-- Tarjeta 3 -->
+        <article class="ref-card">
+          <header class="ref-head">
+            <span class="badge magenta">Paper</span>
+            <time class="year">2022</time>
+          </header>
+          <h3 class="ref-title">
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0167404822000128">Behavioral Malware Analysis in Sandboxes with ML</a>
+          </h3>
+          <p class="ref-meta">Varios autores — 2022</p>
+          <p class="ref-summary">
+            Estudio sobre extracción de señales de procesos, API y red para clasificación con modelos ML; ventajas frente a firmas estáticas.
+          </p>
+          <footer class="ref-foot">
+            <span class="tag">IA</span><span class="tag">Sandboxing</span>
+            <a class="ghost-link" href="https://www.sciencedirect.com/science/article/abs/pii/S0167404822000128"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver fuente</a>
+          </footer>
+        </article>
+
+        <!-- Tarjeta 4 -->
+        <article class="ref-card">
+          <header class="ref-head">
+            <span class="badge coral">Reporte</span>
+            <time class="year">2025</time>
+          </header>
+          <h3 class="ref-title">
+            <a href="https://es.barracuda.com/reports/the-ransomware-insights-report-2025">Cyber-Economics 101 / Ransomware Insights</a>
+          </h3>
+          <p class="ref-meta">Ponemon / Barracuda / IDC — 2024–2025</p>
+          <p class="ref-summary">
+            Tendencias de gasto, prevalencia de ataques y métricas de impacto; distribución del gasto por regiones y contexto LATAM.
+          </p>
+          <footer class="ref-foot">
+            <span class="tag">Estadística</span><span class="tag">Tendencias</span>
+            <a class="ghost-link" href="https://es.barracuda.com/reports/the-ransomware-insights-report-2025"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver fuente</a>
+          </footer>
+        </article>
+
+        <!-- Tarjeta 5 -->
+        <article class="ref-card">
+          <header class="ref-head">
+            <span class="badge violet">Empresa</span>
+            <time class="year">2025</time>
+          </header>
+          <h3 class="ref-title">
+            <a href="https://www.crowdstrike.com/" target="_blank" aria-label="CrowdStrike">CrowdStrike — Threat Intelligence & Endpoint Protection</a>
+          </h3>
+          <p class="ref-meta">CrowdStrike Holdings, Inc. — 2025</p>
+          <p class="ref-summary">
+            Plataforma líder en ciberseguridad que combina IA, detección de amenazas, respuesta ante incidentes y protección de endpoints en la nube.
+          </p>
+          <footer class="ref-foot">
+            <span class="tag">Ciberseguridad</span><span class="tag">Inteligencia de amenazas</span>
+            <a class="ghost-link" href="https://www.crowdstrike.com/" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver fuente
+            </a>
+          </footer>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================
+       PIE
+       ========================================================= -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <h4>Proyecto</h4>
+        <p>Seguridad Adaptativa — Sandboxing con Docker e IA.</p>
+      </div>
+      <div>
+        <h4>Créditos</h4>
+        <p>Proyecto Integrador I — 2025.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Marco de Seguridad Adaptativa — Sandboxing con Docker</title>
+  <meta name="description" content="Marco de Seguridad Adaptativa y Buenas Prácticas en Sandboxing con Docker para la Detección de Malware. Prototipo divulgativo interactivo." />
+
+  <!-- =========================================================
+       STYLES
+       ========================================================= -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://unpkg.com/lucide@0.472.0/dist/umd/lucide.js" defer></script>
+</head>
+
+<body>
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#hero">🛡️ Seguridad Adaptativa</a>
+      <nav class="main-nav" aria-label="Principal">
+        <a href="#regiones">Contexto</a>
+        <a href="#comparativa">Comparativa</a>
+        <a href="#metodologia">Metodología</a>
+        <a href="#objetivos">Objetivos</a>
+        <a href="#transformaciones">Transformaciones</a>
+        <a href="#simuladores">Simuladores</a>
+        <a href="#¿Quienes somos?">¿Quienes somos?</a>
+        <a href="fuentes.html" target="_blank">Fuentes</a>
+      </nav>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <section id="hero" class="hero">
+    <div class="grid-bg"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-left">
+        <h1>Marco de Seguridad Adaptativa y Buenas Prácticas en <span>Sandboxing</span> con Docker para la Detección de Malware.</h1>
+        <p class="intro">Diseño de un prototipo divulgativo en sitio web interactivo</p>
+
+        <div class="hero-actions">
+          <a class="btn" href="#regiones">Ver contexto</a>
+          <a class="btn ghost" href="#metodologia">Metodología</a>
+        </div>
+
+        <ul class="hero-features">
+          <li>🖥️ Aislamiento por contenedores</li>
+          <li>🤖 IA para análisis adaptativo</li>
+          <li>📊 Visualizaciones interactivas</li>
+        </ul>
+      </div>
+
+ <div class="hero-right">
+  <div class="hero-carousel">
+    <div class="hero-track">
+      <img src="mockupv2_1.png" alt="Mockup 1">
+      <img src="mockupv2_2.png" alt="Mockup 2">
+      <img src="mockupv2_3.png" alt="Mockup 3">
+    </div>
+  </div>
+</div>
+  </div>
+  </section>
+
+  <!-- =========================================================
+       REGIONES / 7 DE 10
+       ========================================================= -->
+  <section id="regiones" class="regional section">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <h2>Comparación del mercado global por regiones</h2>
+
+      <div class="regional-grid">
+        <div class="regional-copy">
+          <div class="pill pct red">10%</div>
+          <p>
+            Latinoamérica representa ~<strong>9.7 %</strong> del gasto global en ciberseguridad (2024).
+            América del Sur es parte importante de este bloque, con crecimiento de incidentes y menor preparación.
+          </p>
+
+          <div class="pill pct blue">70%+</div>
+          <p>EE.UU. y Europa Occidental concentran <strong>más del 70 %</strong> del gasto global en ciberseguridad.</p>
+
+          <div class="pill pct violet">20%</div>
+          <p>Asia–Pacífico ~<strong>14 %</strong>, MEA ~<strong>5–7 %</strong> y Oceanía ~<strong>3 %</strong> del total restante.</p>
+
+          <hr class="soft">
+
+          <div class="victims">
+            <p class="kicker">Víctimas a nivel mundial</p>
+            <h3><strong>7 de cada 10</strong> empresas han sufrido algún ciberataque</h3>
+            <div class="people-meter" role="group" aria-labelledby="victimas-label">
+              <span id="victimas-label" class="sr-only">7 de cada 10 empresas</span>
+              <span class="person filled"></span><span class="person filled"></span><span class="person filled"></span>
+              <span class="person filled"></span><span class="person filled"></span><span class="person filled"></span>
+              <span class="person filled"></span><span class="person"></span><span class="person"></span><span class="person"></span>
+            </div>
+          </div>
+
+          <footer class="regional-notes">
+            <small>Fuentes: Grand View Research (2024), IDC/Fortinet (2024), World Bank (2024), Comparitech (2023, act. 2024), Barracuda Networks (2024) cybernomics 101 Report (Ponemon).</small>
+          </footer>
+        </div>
+
+        <figure class="regional-map">
+          <img src="mapamundi.png" alt="Mapa mundial para distribución regional">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       COMPARATIVA
+       ========================================================= -->
+  <section id="comparativa" class="section alt">
+    <div class="wrap">
+      <h2>Diagrama comparativo de Sistemas de seguridad</h2>
+
+      <div class="compare">
+        <article class="pane">
+          <header class="pane-head">
+            <span class="icon-disc sky"><i class="fa-solid fa-shield-halved"></i></span>
+            <h3>Antivirus Tradicional</h3>
+          </header>
+          <ul>
+            <li>🔒 Basado en firmas → solo detecta amenazas conocidas.</li>
+            <li>⏳ Requiere actualizaciones constantes.</li>
+            <li>⚠️ Altos falsos negativos frente a malware avanzado.</li>
+            <li>🛡️ Protección reactiva → actúa después del ataque.</li>
+          </ul>
+        </article>
+
+        <div class="diamond"></div>
+
+        <article class="pane">
+          <header class="pane-head">
+            <span class="icon-disc magenta"><i class="fa-solid fa-robot"></i></span>
+            <h3>Sandboxing + IA</h3>
+          </header>
+          <ul>
+            <li>🧪 Análisis dinámico en entornos aislados.</li>
+            <li>📦 Contenedores (Docker) evitan comprometer el sistema real.</li>
+            <li>🤖 IA detecta comportamientos anómalos.</li>
+            <li>✨ Menos falsos positivos y mejor cobertura. Evolutivo.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       METODOLOGÍA (Design Thinking con discos/diamantes)
+       ========================================================= -->
+  <section id="metodologia" class="section">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <h2>¿Cómo se desarrollará la propuesta?<br><small>Metodología (Design Thinking)</small></h2>
+
+      <div class="dt-line">
+        <div class="dt-step">
+          <span class="icon-disc sky"><i class="fa-solid fa-people-group"></i></span>
+          <h4>EMPATIZAR</h4>
+          <p>Identificar necesidades de usuarios y empresas frente a ataques cibernéticos.</p>
+        </div>
+
+        <span class="diamond small"></span>
+
+        <div class="dt-step">
+          <span class="icon-disc mango"><i class="fa-solid fa-bullseye"></i></span>
+          <h4>DEFINIR</h4>
+          <p>Necesidades de usuarios y empresas frente a ataques avanzados.</p>
+        </div>
+
+        <span class="diamond small"></span>
+
+        <div class="dt-step">
+          <span class="icon-disc sky"><i class="fa-solid fa-lightbulb"></i></span>
+          <h4>IDEAR</h4>
+          <p>Marcos de seguridad de <strong>sandboxing con Docker</strong> + IA como eje central.</p>
+        </div>
+
+        <span class="diamond small"></span>
+
+        <div class="dt-step">
+          <span class="icon-disc coral"><i class="fa-solid fa-person-running"></i></span>
+          <h4>PROTOTIPAR</h4>
+          <p>Simulaciones ilustrativas para expandir propuestas y comunicar ideas clave.</p>
+        </div>
+
+        <span class="diamond small"></span>
+
+        <div class="dt-step">
+          <span class="icon-disc sky"><i class="fa-solid fa-star"></i></span>
+          <h4>PROBAR</h4>
+          <p>Validación de contenidos para inspirar nuevas ideas y futuros proyectos.</p>
+        </div>
+      </div>
+    </div>
+  </section> 
+<!-- =========================================================
+     ETAPAS DEL PROYECTO (antes: Marco Metodológico & Referencia)
+     ========================================================= -->
+<section id="marco" class="section alt stages">
+  <div class="grid-bg"></div>
+  <div class="wrap">
+    <h2>Etapas del proyecto</h2>
+    <p class="subtle">Diagrama de etapas en línea</p>
+
+    <!-- Línea de etapas -->
+    <div class="stages-line">
+
+      <!-- Fila 1: 3 etapas -->
+      <div class="stages-row">
+        <article class="stage-item in">
+          <span class="icon-disc sky"><i class="fa-solid fa-lightbulb"></i></span>
+          <h4>INVESTIGACIÓN</h4>
+          <p>Revisión de literatura (NIST, OWASP, papers de sandboxing y antivirus adaptativos). Análisis de necesidades con empresas.</p>
+        </article>
+
+        <span class="bar"></span>
+
+        <article class="stage-item">
+          <span class="icon-disc mango"><i class="fa-solid fa-comment-dots"></i></span>
+          <h4>DIAGNÓSTICO</h4>
+          <p>Limitaciones de antivirus tradicionales y retos regionales (incidentes altos + baja infraestructura).</p>
+        </article>
+
+        <span class="bar"></span>
+
+        <article class="stage-item">
+          <span class="icon-disc sky"><i class="fa-solid fa-display"></i></span>
+          <h4>DISEÑO</h4>
+          <p>Marco estructurado de desarrollo basado en contenedores Docker, IA y sandboxing.</p>
+        </article>
+      </div>
+
+      <!-- Fila 2: 2 etapas centradas -->
+      <div class="stages-row center">
+        <article class="stage-item">
+          <span class="icon-disc sky"><i class="fa-solid fa-user-group"></i></span>
+          <h4>VALIDACIÓN</h4>
+          <p>Contraste con referentes (GrapheneOS, Cuckoo, CIS Controls) y opiniones de expertos.</p>
+        </article>
+
+        <span class="bar"></span>
+
+        <article class="stage-item">
+          <span class="icon-disc coral"><i class="fa-solid fa-trophy"></i></span>
+          <h4>DIVULGACIÓN</h4>
+          <p>Publicación del sitio interactivo para mostrar prácticas adaptativas.</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- Acordeón interactivo con tu contenido largo -->
+    <h3 class="mt16">Resumen estructurado</h3>
+    <div class="accordions">
+      <details class="acc-item" open>
+        <summary><i class="fa-solid fa-triangle-exclamation"></i> Planteamiento del problema</summary>
+        <div class="acc-body">
+          <ol>
+            <li>Dependencia de firmas estáticas.</li>
+            <li>Dificultad para enfrentar variantes desconocidas.</li>
+            <li>Escasa difusión de buenas prácticas adaptativas claras y aplicables.</li>
+            <li>La adaptación de los virus.</li>
+          </ol>
+        </div>
+      </details>
+
+
+      <details class="acc-item">
+        <summary><i class="fa-solid fa-scale-balanced"></i> Justificación</summary>
+        <div class="acc-body">
+          <p><strong>Académica:</strong> refuerza investigación universitaria en ciberseguridad.</p>
+          <p><strong>Tecnológica:</strong> fomenta sandboxing y contenedores Docker.</p>
+          <p><strong>Social:</strong> facilita comprensión de la seguridad digital.</p>
+          <p><strong>Innovación:</strong> prácticas adaptativas con IA como complemento.</p>
+        </div>
+      </details>
+
+      <details class="acc-item">
+        <summary><i class="fa-solid fa-vector-square"></i> Delimitaciones</summary>
+        <div class="acc-body">
+          <p>Si / alcances / no — Guía académica sobre sandboxing y buenas prácticas. Difusión en un sitio web interactivo. No es un antivirus funcional. No implica pruebas directas con malware real. No sustituye soluciones comerciales.</p>
+        </div>
+      </details>
+
+      <details class="acc-item">
+        <summary><i class="fa-solid fa-chart-line"></i> Resultados esperados</summary>
+        <div class="acc-body">
+          <p>Marco académico robusto y fundamentado. Guía técnica de prácticas de sandboxing con Docker. Sitio web interactivo para visualizar el concepto de seguridad adaptativa Y base para próximos proyectos con relación a seguridad con sandboxing e IA para análisis inteligente.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+  <!-- =========================================================
+       OBJETIVOS (tarjeta gradiente + 3 tarjetas)
+       ========================================================= -->
+  <section id="objetivos" class="section alt">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <h2>Objetivos del Proyecto</h2>
+      <p class="subtle">Estas metas guían el enfoque del prototipo de seguridad adaptativa.</p>
+
+      <div class="goal main">
+        <span class="icon-disc sky"><i class="fa-solid fa-bullseye"></i></span>
+        <p>Analizar y documentar buenas prácticas adaptativas para la detección de malware mediante <strong>sandboxing con Docker e IA</strong>para formular un marco académico de buenas prácticas.
+.</p>
+      </div>
+
+      <div class="goal-grid">
+        <article class="goal small">
+          <span class="icon-disc sky"><i class="fa-solid fa-shield"></i></span>
+          <h4>Analizar las características de los sistemas antivirus tradicionales</h4>
+          <p>Destacar sus limitaciones frente a las amenazas modernas y su falta de respuesta ante malware dinámico.</p>
+        </article>
+
+        <article class="goal small">
+          <span class="icon-disc magenta"><i class="fa-solid fa-gears"></i></span>
+          <h4>Diseñar e implementar una plataforma web responsiva</h4>
+          <p>Integrando simuladores, visualizaciones y ejemplos prácticos con Docker e Inteligencia Artificial.</p>
+        </article>
+
+        <article class="goal small">
+          <span class="icon-disc mint"><i class="fa-solid fa-bullhorn"></i></span>
+          <h4>Integrar herramientas y módulos interactivos</h4>
+          <p>Para visualizar el comportamiento de los sistemas de análisis y detección de malware en un simulador de sandboxing con contenedores DOCKER e IA.
+</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       MARCO de REFERENCIAS
+       ========================================================= -->
+  <section id="marco-referencias" class="section">
+    <div class="wrap">
+      <h2>Marco de Referencia</h2>
+
+      <div class="ref-grid">
+        <article class="ref-card">
+          <h3>NIST</h3>
+          <ul>
+            <li>CSF 2.0 — funciones: Identify, Protect, Detect, Respond, Recover.</li>
+            <li>SP 800-190 — seguridad en contenedores (amenazas, controles, supply chain).</li>
+          </ul>
+        </article>
+
+        <article class="ref-card">
+          <h3>OWASP</h3>
+          <ul>
+            <li>Top 10 / ASVS — riesgos y verificación de controles.</li>
+            <li>Docker Security Cheat Sheet — hardening, límites, capabilities.</li>
+          </ul>
+        </article>
+
+        <article class="ref-card">
+          <h3>GrapheneOS</h3>
+          <ul>
+            <li>Ejemplo real de sandboxing móvil endurecido.</li>
+            <li>Principios trasladables: mínimo privilegio y superficies reducidas.</li>
+          </ul>
+        </article>
+      </div>
+
+
+    </div>
+  </section>
+
+
+
+  <!-- =========================================================
+       TRANSFORMACIONES
+       ========================================================= -->
+  <section id="transformaciones" class="section">
+    <div class="wrap">
+      <h2>Transformaciones del proyecto (mockups)</h2>
+      <div class="carousel" id="carousel">
+        <button class="carousel-arrow prev" aria-label="Anterior">‹</button>
+        <div class="carousel-track">
+          <figure class="carousel-item"><img src="Mockup_1.png" alt="Mockup v1" /><figcaption>Versión: Inicio — estructura inicial</figcaption></figure>
+          <figure class="carousel-item"><img src="Mockup_2.png" alt="Mockup v2" /><figcaption>Versión: Primer diseño del mapamundi</figcaption></figure>
+          <figure class="carousel-item"><img src="Mockup_3.png" alt="Mockup v3" /><figcaption>Versión: primera version del analizador de archivos</figcaption></figure>
+        </div>
+        <button class="carousel-arrow next" aria-label="Siguiente">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SIMULADORES (INCLUYE ANALIZADOR VT)
+       ========================================================= -->
+  <section id="simuladores" class="section alt">
+    <div class="wrap">
+      <h2>Simuladores</h2>
+      <p>Este módulo es didáctico. No reemplaza análisis forense real ni servicios como VirusTotal.</p>
+
+      <div class="sim-card">
+        <h3>Analizador tipo VirusTotal (prototipo educativo)</h3>
+        <p>Arrastra un archivo o haz clic para seleccionarlo. Se calculará un hash SHA-256 y se mostrará una simulación de detección por motores antivirus.</p>
+
+        <div id="dropzone" class="dropzone" tabindex="0">
+          <p>📂 Suelta aquí tu archivo o haz clic para seleccionarlo</p>
+          <input type="file" id="fileInput" class="hidden" />
+        </div>
+
+        <div id="fileMeta" class="meta hidden">
+          <h4>Metadatos del archivo</h4>
+          <p><strong>Nombre:</strong> <span id="metaName">—</span></p>
+          <p><strong>Tamaño:</strong> <span id="metaSize">—</span></p>
+          <p><strong>Tipo:</strong> <span id="metaType">—</span></p>
+          <p><strong>SHA-256:</strong> <code id="metaSha">—</code></p>
+        </div>
+
+        <div id="actions" class="actions hidden">
+          <button id="scanBtn" class="btn"><i class="fas fa-play"></i> Analizar (simulación)</button>
+          <button id="resetBtn" class="btn ghost">Reiniciar</button>
+        </div>
+
+        <div id="results" class="results hidden">
+          <div class="kpis">
+            <div><strong>Detecciones:</strong> <span id="kpiDetections">0</span></div>
+            <div><strong>Limpios:</strong> <span id="kpiClean">0</span></div>
+            <div><strong>Sospechosos:</strong> <span id="kpiSusp">0</span></div>
+          </div>
+
+          <canvas id="vtChart" width="220" height="220"></canvas>
+
+          <table id="engineTable">
+            <thead>
+              <tr><th>Motor</th><th>Resultado</th><th>Etiqueta</th><th>Conf.</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Placeholder para contenedor Docker / IA adaptativa (futuro) -->
+      <div class="sim-card">
+        <h3>Simulador Docker + IA</h3>
+        <p>Ejecuta el simulador interactivo que analiza archivos mediante IA y Docker, con sandboxing y generación de informes automáticos.</p>
+
+        <a href="index_2.html" 
+        class="btn launch-btn" 
+        target="_blank">
+        🚀 Abrir Simulador Docker + IA
+        </a>
+</div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ¿QUIENES SOMOS?
+       ========================================================= -->
+  <section id="¿Quienes somos?" class="section">
+    <div class="wrap">
+      <h2>Quienes somos</h2>
+      <p></p>
+
+      <div class="testimonials">
+        <article class="testimonial">
+          <div class="t-head">
+            <img src="Lider.jpg" alt="Avatar genérico" class="avatar" />
+            <div class="t-meta"><strong>Cristian Jose Rodriguez Rodriguez</strong><span class="role">Lider del proyecto</span></div>
+          </div>
+          <p class="t-body">Encargado de dirigir a los demas miembros del equipo, de la documentacion y de los entregables del proyecto</p>
+        </article>
+
+        <article class="testimonial">
+          <div class="t-head">
+            <img src="desarrollador.jpg" alt="Avatar genérico" class="avatar" />
+            <div class="t-meta"><strong>Kleider Jhonaiker Arismendi Barrera</strong><span class="role">Desarrollador</span></div>
+          </div>
+          <p class="t-body">Encargado de la parte del correcto funcionamiento de la pagina web, simuladores y mas funciones adicionales</p>
+        </article>
+
+        <article class="testimonial">
+          <div class="t-head">
+            <img src="diseñador.jpg" alt="Avatar genérico" class="avatar" />
+            <div class="t-meta"><strong>Dylan Mauricio Vecino Garcia</strong><span class="role">Diseñador</span></div>
+          </div>
+          <p class="t-body">Encargado de la parte del diseño(css) de la pagina, de la responsividad y de los mockups</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <h4>Autores</h4>
+        <p>Cristian Rodriguez 02240132026<br>Kleider Arismendi 02240132036<br>Dylan Vecino 02240132042</p>
+      </div>
+      <div>
+        <h4>Notas</h4>
+        <p>Proyecto académico — Divulgación de buenas prácticas con Docker, sandboxing e IA.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" class="to-top" aria-label="Volver arriba">▲</button>
+
+  <!-- =========================================================
+       SCRIPTS
+       ========================================================= -->
+  <script src="app.js"></script>
+</body>
+</html>

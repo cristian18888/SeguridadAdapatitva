@@ -1,0 +1,19 @@
+{
+  "regions": [
+    {
+      "region": "Americas",
+      "spend_usd_billion": 45.2,
+      "incidents": 12000
+    },
+    {
+      "region": "EMEA",
+      "spend_usd_billion": 38.7,
+      "incidents": 9800
+    },
+    {
+      "region": "APAC",
+      "spend_usd_billion": 52.1,
+      "incidents": 15000
+    }
+  ]
+}
