@@ -281,4 +281,17 @@ if (heroTrack && heroImages.length > 0) {
     heroIndex = (heroIndex + 1) % heroImages.length;
     heroTrack.style.transform = `translateX(-${heroIndex * 100}%)`;
   }, 4000);
+
 }
+
+
+// ===========================
+// Menú responsive
+// ===========================
+const navToggle = document.getElementById("nav-toggle");
+const mainNav = document.querySelector(".main-nav");
+
+navToggle.addEventListener("click", () => {
+  mainNav.classList.toggle("open");
+  navToggle.classList.toggle("active");
+});
