@@ -598,3 +598,81 @@ body{
   text-align: center;
   padding: 16px;
 }
+
+/* =========================================================
+   📱 MENÚ RESPONSIVE — Seguridad Adaptativa
+   ========================================================= */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Estado hover */
+.nav-toggle:hover {
+  color: var(--sky);
+}
+
+/* Cuando el menú está abierto, cambia a ✕ */
+.nav-toggle.active::before {
+  content: "✕";
+}
+
+/* ==============================
+   Versión móvil
+   ============================== */
+@media (max-width: 980px) {
+  /* Mostrar el botón hamburguesa */
+  .nav-toggle {
+    display: block;
+  }
+
+  /* Ocultar el menú por defecto */
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 22px;
+    background: rgba(9, 18, 32, 0.96);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 14px;
+    flex-direction: column;
+    gap: 10px;
+    width: 220px;
+    animation: fadeMenu 0.25s ease;
+    z-index: 999;
+  }
+
+  /* Mostrar cuando se activa */
+  .main-nav.open {
+    display: flex;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 10px;
+  }
+
+  .main-nav a:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+/* Animación */
+@keyframes fadeMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
