@@ -284,13 +284,3 @@ if (heroTrack && heroImages.length > 0) {
 
 }
 
-// ===========================
-// Menú responsive
-// ===========================
-const navToggle = document.getElementById("nav-toggle");
-const mainNav = document.querySelector(".main-nav");
-
-navToggle.addEventListener("click", () => {
-  mainNav.classList.toggle("open");
-  navToggle.classList.toggle("active");
-});
